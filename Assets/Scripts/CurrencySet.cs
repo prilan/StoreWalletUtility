@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using WalletUtility;
 
-namespace Assets.Scripts
+namespace WalletUtility
 {
     public class CurrencySet
     {
