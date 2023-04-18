@@ -9,7 +9,7 @@ namespace WalletUtility
         public string CurrencyName;
         public int CurrencyValue { get; private set; }
 
-        Currency(string currencyName, int currencyValue = 0)
+        public Currency(string currencyName, int currencyValue = 0)
         {
             CurrencyName = currencyName;
             CurrencyValue = currencyValue;
@@ -17,7 +17,12 @@ namespace WalletUtility
 
         public void SetValue(int currencyValue)
         {
-            
+            CurrencyValue = currencyValue
+        }
+
+        public void IncrementValue()
+        {
+            CurrencyValue++;
         }
     }
 }
