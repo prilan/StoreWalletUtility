@@ -17,7 +17,7 @@ namespace WalletUtility
 
         public void SetValue(int currencyValue)
         {
-            CurrencyValue = currencyValue
+            CurrencyValue = currencyValue;
         }
 
         public void IncrementValue()

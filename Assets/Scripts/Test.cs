@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WalletUtility;
+using static WalletUtility.Wallet;
 
-namespace Assets.Scripts
+namespace TestApp
 {
     public enum CurrencyType
     {
@@ -12,9 +14,10 @@ namespace Assets.Scripts
         Crystals
     }
 
-    internal class Test
+    public class Test
     {
-        private WalletUtility.WalletUtility walletUtility; // TODO singleton
+        private Wallet walletUtility; // TODO singleton
+        
 
         public void Main()
         {
