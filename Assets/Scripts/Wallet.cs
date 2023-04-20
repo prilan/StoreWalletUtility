@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WalletUtility
 {
-    public class Wallet
+    public class Wallet : AbstractSingleton<Wallet>
     {
         private CurrencySet currencySet;
 
