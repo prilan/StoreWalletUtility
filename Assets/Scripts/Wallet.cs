@@ -5,7 +5,7 @@ namespace WalletUtility
 {
     public class Wallet : AbstractSingleton<Wallet>
     {
-        private CurrencySet currencySet;
+        private CurrencySet currencySet = new CurrencySet();
 
         public void CreateCurrency(string currencyName)
         {
@@ -13,27 +13,41 @@ namespace WalletUtility
             currencySet.AddCurrency(currency);
         }
 
-        public bool IncrementCurrency(string curencyName)
+        public void IncrementCurrency(string curencyName)
         {
             if (currencySet.HasCurrency(curencyName))
             {
                 Currency currency = currencySet.GetCurrency(curencyName);
                 currency.IncrementValue();
+            }
+        }
 
-                return true;
+        public void ZeroCurrency(string curencyName)
+        {
+            if (currencySet.HasCurrency(curencyName))
+            {
+                Currency currency = currencySet.GetCurrency(curencyName);
+                currency.SetValue(0);
+            }
+        }
+
+        public Currency GetCurrency(string curencyName)
+        {
+            if (currencySet.HasCurrency(curencyName))
+            {
+                Currency currency = currencySet.GetCurrency(curencyName);
+                return currency;
             }
 
-            return false;
+            return null;
         }
 
         private class CurrencySet
         {
-            private HashSet<ICurrency> currencySet = new HashSet<ICurrency>();
             private Dictionary<string, Currency> currencyDictionary = new Dictionary<string, Currency>();
 
             public void AddCurrency(Currency currency)
             {
-                currencySet.Add(currency);
                 currencyDictionary[currency.CurrencyName] = currency;
             }
 
