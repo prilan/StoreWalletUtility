@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WalletUtility;
 using static WalletUtility.Wallet;
 
@@ -27,6 +25,8 @@ namespace TestApp
             walletUtility.CreateCurrency("crystals");
 
             walletUtility.IncrementCurrency("coins");
+
+            List<Currency> walletCurrencies = walletUtility.Currencies.ToList();
         }
     }
 }

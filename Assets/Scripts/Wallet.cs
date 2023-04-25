@@ -1,11 +1,16 @@
-using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace WalletUtility
 {
     public class Wallet : AbstractSingleton<Wallet>
     {
         private CurrencySet currencySet = new CurrencySet();
+
+        private List<Currency> currencyList => currencySet.Currencies.Values.ToList();
+
+        public ReadOnlyCollection<Currency> Currencies => new ReadOnlyCollection<Currency>(currencyList);
 
         public void CreateCurrency(string currencyName)
         {
@@ -45,6 +50,8 @@ namespace WalletUtility
         private class CurrencySet
         {
             private Dictionary<string, Currency> currencyDictionary = new Dictionary<string, Currency>();
+
+            public Dictionary<string, Currency> Currencies => currencyDictionary;
 
             public void AddCurrency(Currency currency)
             {
